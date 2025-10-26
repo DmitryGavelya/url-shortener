@@ -56,7 +56,7 @@ function App() {
           <Row className="text-center mb-5">
             <Col>
               <h1 className="display-4 fw-bold text-primary mb-3">
-                Сокращатель URL
+                URL Shortener
               </h1>
               <p className="lead text-muted">
                 Создавайте короткие ссылки из длинных URL мгновенно
