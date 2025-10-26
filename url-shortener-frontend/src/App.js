@@ -63,7 +63,6 @@ function App() {
               </p>
             </Col>
           </Row>
-
           {/* Main Card */}
           <Row className="justify-content-center">
             <Col md={8} lg={6}>
