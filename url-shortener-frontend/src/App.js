@@ -23,7 +23,7 @@ function App() {
     const effectiveLen = lenUrl === 'auto' ? 6 : parseInt(lenUrl, 10);
 
     if (!originalUrl) {
-      setError('Please enter a URL');
+      setError('Пожалуйста, введите URL');
       setIsLoading(false);
       return;
     }
@@ -37,13 +37,13 @@ function App() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to shorten URL');
+        throw new Error(errorData.error || 'Не удалось сократить URL');
       }
 
       const data = await response.json();
       setShortUrl(`${DISPLAY_BASE_URL}/${data.shortCode}`);
     } catch (err) {
-      setError(err.message || 'Network error');
+      setError(err.message || 'Ошибка сети');
     } finally {
       setIsLoading(false);
     }
@@ -56,10 +56,10 @@ function App() {
           <Row className="text-center mb-5">
             <Col>
               <h1 className="display-4 fw-bold text-primary mb-3">
-                URL Shortener
+                Сокращатель URL
               </h1>
               <p className="lead text-muted">
-                Transform long URLs into short, shareable links in seconds
+                Создавайте короткие ссылки из длинных URL мгновенно
               </p>
             </Col>
           </Row>
@@ -73,11 +73,11 @@ function App() {
                     {/* URL Input */}
                     <Form.Group className="mb-4">
                       <Form.Label className="fw-semibold text-dark mb-3">
-                        Enter your long URL
+                        Введите ваш длинный URL
                       </Form.Label>
                       <Form.Control
                           type="url"
-                          placeholder="https://example.com/very/long/url/that/needs/shortening"
+                          placeholder="https://example.com/очень/длинный/url/который/нужно/сократить"
                           value={originalUrl}
                           onChange={(e) => setOriginalUrl(e.target.value)}
                           size="lg"
@@ -88,7 +88,7 @@ function App() {
                     {/* Length Settings */}
                     <Form.Group className="mb-4">
                       <Form.Label className="fw-semibold text-dark mb-3">
-                        Customize short code
+                        Настройте длину короткого кода
                       </Form.Label>
                       <Form.Select
                           value={lenUrl}
@@ -96,16 +96,15 @@ function App() {
                           size="lg"
                           className="border-2"
                       >
-                        <option value="auto">Auto length (recommended)</option>
-                        <option value="5">5 characters</option>
-                        <option value="6">6 characters</option>
-                        <option value="7">7 characters</option>
-                        <option value="8">8 characters</option>
-                        <option value="9">9 characters</option>
-                        <option value="10">10 characters</option>
+                        <option value="auto">Автоматическая длина (рекомендуется)</option>
+                        <option value="5">5 символов</option>
+                        <option value="6">6 символов</option>
+                        <option value="7">7 символов</option>
+                        <option value="8">8 символов</option>
+                        <option value="9">9 символов</option>
+                        <option value="10">10 символов</option>
                       </Form.Select>
                       <Form.Text className="text-muted">
-                        Shorter codes are more convenient but have higher collision chance
                       </Form.Text>
                     </Form.Group>
 
@@ -120,11 +119,11 @@ function App() {
                       {isLoading ? (
                           <>
                             <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-                            Creating short URL...
+                            Создаём короткий URL...
                           </>
                       ) : (
                           <>
-                            Shorten URL
+                            Сократить URL
                           </>
                       )}
                     </Button>
@@ -142,8 +141,9 @@ function App() {
                       <div className="mt-4 pt-4 border-top">
                         <Alert variant="success" className="border-0 bg-success bg-opacity-10">
                           <div className="d-flex align-items-center mb-2">
-                            <strong className="text-success">Your short URL is ready!</strong>
+                            <strong className="text-success">Ваш короткий URL готов!</strong>
                           </div>
+
                           <div className="bg-white rounded p-3 border">
                             <Row className="align-items-center">
                               <Col>
@@ -165,11 +165,11 @@ function App() {
                                   >
                                     {copied ? (
                                         <>
-                                          Copied!
+                                          Скопировано!
                                         </>
                                     ) : (
                                         <>
-                                          Copy
+                                          Копировать
                                         </>
                                     )}
                                   </Button>
@@ -177,20 +177,20 @@ function App() {
                               </Col>
                             </Row>
                           </div>
+
                           <div className="mt-2 text-muted small">
-                            Click the link to test it, or copy to share with others
+                            Нажмите на ссылку для проверки или скопируйте, чтобы поделиться
                           </div>
                         </Alert>
                       </div>
                   )}
                 </Card.Body>
               </Card>
-
             </Col>
           </Row>
         </Container>
 
-        {}
+        {/* Add Bootstrap Icons */}
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
