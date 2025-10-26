@@ -1,8 +1,8 @@
 {
-  "name": "url-shortener-frontend",
+  "name": "url-shortener",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dmitrygavelya.github.io/url-shortener-frontend",
+  "homepage": "https://dmitrygavelya.github.io/url-shortener",
   "dependencies": {
     "bootstrap": "^5.3.8",
     "react": "^18.3.1",
