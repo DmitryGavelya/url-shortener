@@ -20,9 +20,15 @@ function App() {
     setCopied(false);
     setIsLoading(true);
 
+    let url = originalUrl.trim();
+    if (url && !url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
+      setOriginalUrl(url);
+    }
     const effectiveLen = lenUrl === 'auto' ? 6 : parseInt(lenUrl, 10);
 
-    if (!originalUrl) {
+    
+    if (!url) {
       setError('Пожалуйста, введите URL');
       setIsLoading(false);
       return;
